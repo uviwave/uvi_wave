@@ -1,0 +1,189 @@
+
+   		   Uvi_Wave version 3.0
+
+	   -=<	WAVELET TOOLBOX for MATLAB  >=-
+           ------------------------------------
+		
+
+= Copyright =
+--------------------------------------------------------------------
+
+(c) Copyright 1996, by Universidad de Vigo under GNU conditions. 
+
+	For any question about the toolbox files:
+		e-mail:   Uvi_Wave@tsc.uvigo.es
+
+	ftp server:
+		ftp.tsc.uvigo.es
+		under /pub/Uvi_Wave/matlab directory
+
+	World Wide Web:
+		http://www.tsc.uvigo.es/~wavelets/uvi_wave.html
+
+
+= What is the Wavelet Toolbox =
+--------------------------------------------------------------------
+
+This Wavelet Toolbox for Matlab intends to help the researches and 
+education professionals interested on any of the possibilities that 
+Wavelet Processing offers.
+
+We hope the tools developed into a widely used environment as Matlab,
+can be easily accepted by the scientific community. 
+
+In the next paragraphs, a short description of the main features of the
+Uvi_Wave Toolbox can be found.
+
+
+- Discrete Wavelet Transform:  calculation and visualization of 
+the Discrete Wavelet Transform (DWT) and Inverse Discrete Wavelet 
+Transform (IDWT) for an unidimensional or bidimensional signal. 
+Routines to implement the typical filter bank structure have been 
+programmed. 
+
+
+- Scale Function and Wavelet Function: calculation and visualization of 
+the discrete approximation scale and wavelet functions, obtained as the 
+equivalent iterated filter that corresponds to the lower branch in the 
+filter bank structure.
+
+
+- Multiresolution analysis:  the objective of these routines
+is the representation of the signal information into a set of 
+approximation signals and detail signals at different resolutions.
+
+
+- Wavelet design: design of a set of filters that lead to the wavelet 
+decomposition and reconstruction. The selected design algorithms includes
+orthogonal (Daubechies, Symlets, Battle-Lemarie, maximally flat, Remez) and
+biorthogonal (Spline solution) families. Various filter regularity estimates
+are also included.
+
+- Wavelet Packet Transform: calculation of the Discrete Wavelet Packet
+Transform for unidimensional or bidimensional signals. The routines allows
+to set the filter bank structure, that is, the subband decomposition we want
+to perform. Moreover, basis selection algorithms with different cost functions
+are included.
+
+- Scalogram: discrete-time simulation of the scalogram of a continous
+signal using the Morlet wavelet as analyzing function.  
+
+In addition some demos and utilities for subband managing and viewing
+have been included.
+
+
+Despite the functions are clearly commented, we are working on the
+documentation.
+
+
+= Configuration of the Wavelet Toolbox =
+--------------------------------------------------------------------
+
+
+  * The Subdirectory tree
+  """""""""""""""""""""""""""""""
+
+   The Wavelet Toolbox's subdirectories are arranged as follows:
+
+        WAVELET_HOME			
+		 |
+                 |_______ WVT
+         	 |_______ WPACKETS
+		 |_______ WFILTER
+		 |_______ WTUTILS	
+		 |_______ WPUTILS
+                 |_______ SCAL
+		 |_______ WDEMO
+
+
+   WAVELET_HOME Directory:
+	
+	This is the root directory, that contains the STARTUP.M 
+        file, a brief description of Uvi_Wave and the usage conditions.
+
+   WVT Directory:
+
+        The routines necessary to compute the wavelet transform  
+        and to perform a multiresolution analysis can be found here.
+
+   WPACKETS Directory:
+	
+	Contains all the wavelet packet transform functions, 
+	together with some related utilities and the basis
+        selection algorithms. Some cost functions that can
+        be used with the selection routines are provided.
+	
+   WFILTER Directory:
+
+	Contains the functions for generating the different filter
+	families, together with three regularity estimates.
+
+   WTUTILS Directory:
+
+	This contains all the viewing,  alignment calculation,
+        band  extraction/insertion/..., size finding  and most
+	other utilities for the 1D-2D wavelet transform.
+	
+   WPUTILS Directory:
+
+	Contains the viewing, band extraction/insertion/..., size
+	finding and miscellanous utilities for the 1D-2D wavelet
+	packet transform.
+	
+   SCAL Directory:
+
+	Contains the functions to compute the sampled Morlet
+	wavelet, the scalogram of a sampled continous function and
+	a utility for 3D viewing of the scalogram.
+
+   WDEMO Directory:
+
+	Contains some demo programs and some data examples 
+	(images and signals)  used in the demos.  A test image 
+	generator also exists in this directory.
+
+
+
+       All  Wavelet Toolbox's  directories should be loaded into the 
+   MATLABPATH variable to execute the toolbox's functions (maybe the
+   WDEMO can be left out).  This task is made by the STARTUP.M file,
+   but surely this file should be edited to configure the directories
+   (at least the local WAVELET_HOME directory).  See the next  point 
+   for help on configuring the toolbox.
+
+
+
+  * The STARTUP.M file
+  """""""""""""""""""""""""""""""
+
+   What does Wavelet's STARTUP.M file do?
+
+	- Loads the four directory entries into MATLABPATH
+
+	- Sets a default method for wavelet subband alignment
+
+
+   Editing the STARTUP.M file:
+
+
+       The  first  thing  you  find   is  a  global  variable  named 
+   WAVELET_HOME_PATH, just before the  "ABOUT THE WAVELET..."  text. 
+   There is a pre-installation check to avoid repeating the toolbox's 
+   paths in the MATLABPATH variable.
+   
+       Under this section  there's a  Copyright message  display and 
+   the definition of the  WAVELET_HOME_PATH variable. Well,  this is 
+   what you must set to your Wavelet Toolbox's home directory.
+
+       If you preserve  the original  directory  tree,  then nothing 
+   more  is  to do now.  However,  you may want to change any of the 
+   subdirectories.  Then  make it  under the  previous  declaration. 
+   There's one string variable for every toolbox's directory. Change
+   them as you need.
+
+
+      The last section of STARTUP.M sets the WTCENTERMETHOD variable
+   to its default value of 0.  If you want to start matlab  with any 
+   other value, change it here. See help on WTMETHOD from matlab for 
+   allowed values of  WTCENTERMETHOD.  The alignment method  can  be 
+   set to other value at anytime within the matlab session.
